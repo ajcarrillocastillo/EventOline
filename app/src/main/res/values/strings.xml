@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">EventOline</string>
+
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="title_activity_listado_acontecimientos">ListadoAcontecimientosActivity</string>
+    <string name="title_activity_about_us">AboutUS</string>
+    <string name="title_activity_annadir_acontecimiento">AnnadirAcontecimientoActivity</string>
+</resources>
