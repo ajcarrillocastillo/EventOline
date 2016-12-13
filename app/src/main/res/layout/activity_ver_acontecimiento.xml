@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="com.carrillo.jesus.eventoline.AnnadirAcontecimientoActivity">
+    tools:context="com.carrillo.jesus.eventoline.VerAcontecimientoActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -19,18 +19,8 @@
             android:background="?attr/colorPrimary"
             app:popupTheme="@style/AppTheme.PopupOverlay" />
 
-        <ProgressBar
-            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/progressBar"
-            android:visibility="invisible"
-            android:indeterminate="true" />
-
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_annadir_acontecimiento" />
-
-
+    <include layout="@layout/content_ver_acontecimiento" />
 
 </android.support.design.widget.CoordinatorLayout>

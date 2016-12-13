@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    tools:showIn="@layout/activity_listado_acontecimientos"
+    tools:showIn="@layout/activity_ver_acontecimiento"
+    android:id="@+id/linearVerAcontecimientos"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -11,19 +12,8 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     android:orientation="vertical"
-    tools:context="com.carrillo.jesus.eventoline.ListadoAcontecimientosActivity">
+    tools:context="com.carrillo.jesus.eventoline.VerAcontecimientoActivity">
 
 
-    <TextView
-        android:text="Item mio"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView4" />
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scrollbars="vertical" />
 
 </LinearLayout>
