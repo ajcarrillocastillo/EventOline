@@ -20,7 +20,11 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class ListadoAcontecimientosActivity extends AppCompatActivity {
     private static final String ACTIVITY=  "listadoAcontecimiento";
@@ -64,8 +68,27 @@ public class ListadoAcontecimientosActivity extends AppCompatActivity {
 //recogemos los datos
                 String id =cursor.getString(cursor.getColumnIndex("id"));
                 String nombreAcontecimiento = cursor.getString(cursor.getColumnIndex("nombre"));
-                String inicio = cursor.getString(cursor.getColumnIndex("inicio"));
-                String fin = cursor.getString(cursor.getColumnIndex("fin"));
+                String inicioSinFormato = cursor.getString(cursor.getColumnIndex("inicio"));
+                // el que parsea
+                SimpleDateFormat parseador = new SimpleDateFormat("yyyymmddhhmm");
+// el que formatea
+                SimpleDateFormat formateador = new SimpleDateFormat("dd/MM/yyyy");
+
+                Date date = null;
+                try {
+                    date = parseador.parse(inicioSinFormato);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                String inicio=formateador.format(date);
+                String finSinFormato = cursor.getString(cursor.getColumnIndex("fin"));
+
+                try {
+                    date = parseador.parse(inicioSinFormato);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                String fin=formateador.format(date);
                 items.add(new AcontecimientoItem(id,nombreAcontecimiento,inicio,fin));
 
             }while(cursor.moveToNext());
