@@ -8,21 +8,60 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 public class AboutUS extends AppCompatActivity {
-
+    private static final String ACTIVITY=  "AboutUs";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about_us);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+        //hacemos visible el upbuton
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+            public void onClick(View v) {
+                onBackPressed();
             }
         });
+
+    }
+    @Override
+    protected void onStart() {
+        MyLog.d(ACTIVITY,"Empieza onStar");
+        super.onStart();
+
+    }
+
+    @Override
+    protected void onResume() {
+        MyLog.d(ACTIVITY,"Empieza onResume");
+        super.onResume();
+    }
+
+    @Override
+    protected void onPause() {
+        MyLog.d(ACTIVITY,"Empieza onPause");
+        super.onPause();
+    }
+
+    @Override
+    protected void onStop() {
+        MyLog.d(ACTIVITY,"Empieza onStop");
+        super.onStop();
+
+    }
+
+    @Override
+    protected void onRestart() {
+        MyLog.d(ACTIVITY,"Empieza onRestar");
+        super.onRestart();
+    }
+
+    @Override
+    protected void onDestroy() {
+        MyLog.d(ACTIVITY,"Empieza onDestroy");
+        // TODO Auto-generated method stub
+        super.onDestroy();
     }
 
 }

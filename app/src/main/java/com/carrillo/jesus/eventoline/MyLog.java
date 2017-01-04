@@ -3,7 +3,7 @@ package com.carrillo.jesus.eventoline;
 /**
  * Created by jesus on 04/10/2016.
  */
-
+//para cargar los mensajes en el log
 public class MyLog {
     // Cambiar a 'false' para deshabilitar el Log de la aplicación
     static final boolean DEBUG = true;

@@ -122,11 +122,11 @@ public class VerAcontecimientoActivity extends AppCompatActivity {
         layout.addView(milayout);
     }
     //En onBackPressed le decimos que  hacer al hacer la funcion de ir acia atras
-    @Override
+  /* @Override
     public void onBackPressed() {
         this.startActivity(new Intent(this, ListadoAcontecimientosActivity.class));
         this.finish();
-    }
+    }*/
     @Override
     protected void onStart() {
         MyLog.d(ACTIVITY,"Empieza onStar");

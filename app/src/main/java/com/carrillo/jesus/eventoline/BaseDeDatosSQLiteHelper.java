@@ -8,7 +8,7 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteOpenHelper;
-
+//gestionamos las funciones de la base de datos
 public class BaseDeDatosSQLiteHelper extends SQLiteOpenHelper {
 
     //Sentencia SQL para crear la tabla de Usuarios
@@ -26,7 +26,7 @@ public class BaseDeDatosSQLiteHelper extends SQLiteOpenHelper {
             "  `cod_postal` int(5) DEFAULT NULL," +
             "  `provincia` varchar(256) DEFAULT NULL," +
             "  `longitud` float DEFAULT NULL," +
-            "  `altitud` float DEFAULT NULL," +
+            "  `latitud` float DEFAULT NULL," +
             "  `telefono` int(9) DEFAULT NULL," +
             "  `email` varchar(256) DEFAULT NULL," +
             "  `web` varchar(256) DEFAULT NULL," +
@@ -79,5 +79,6 @@ public class BaseDeDatosSQLiteHelper extends SQLiteOpenHelper {
         db.execSQL(sqlCreateAcontecimiento);
         db.execSQL(sqlCreateEventos);
     }
+
 
 }

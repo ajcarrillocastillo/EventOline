@@ -14,11 +14,6 @@
     tools:context="com.carrillo.jesus.eventoline.ListadoAcontecimientosActivity">
 
 
-    <TextView
-        android:text="Item mio"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView4" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerView"

@@ -9,7 +9,7 @@ import java.util.TimerTask;
 
 public class LogoActivity extends AppCompatActivity {
     private static final String ACTIVITY = "LogoActivity";
-
+    //actividad inicial
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         MyLog.d(ACTIVITY, "Empieza onCreate");
