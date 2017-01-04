@@ -47,6 +47,75 @@ public class ListadoAcontecimientosActivity extends AppCompatActivity {
                     }
                 });
         // Crear elementos
+        rellenarReciclerview();
+
+
+
+
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        getMenuInflater().inflate(R.menu.menu_listado_acontecimietos, menu);
+        return true;
+    }
+    @Override
+    public void onBackPressed() {
+        System.exit(0);
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+       int id=item.getItemId();
+        if(id==R.id.aboutUsItem){
+
+            startActivity( new Intent(this,AboutUS.class));
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+    @Override
+    protected void onStart() {
+        //rellenarReciclerview();
+        MyLog.d(ACTIVITY,"Empieza onStar");
+        super.onStart();
+
+    }
+
+    @Override
+    protected void onResume() {
+        rellenarReciclerview();
+        MyLog.d(ACTIVITY,"Empieza onResume");
+        super.onResume();
+    }
+
+    @Override
+    protected void onPause() {
+        MyLog.d(ACTIVITY,"Empieza onPause");
+        super.onPause();
+    }
+
+    @Override
+    protected void onStop() {
+        MyLog.d(ACTIVITY,"Empieza onStop");
+        super.onStop();
+
+    }
+
+    @Override
+    protected void onRestart() {
+        MyLog.d(ACTIVITY,"Empieza onRestar");
+        super.onRestart();
+    }
+
+    @Override
+    protected void onDestroy() {
+        MyLog.d(ACTIVITY,"Empieza onDestroy");
+        // TODO Auto-generated method stub
+        super.onDestroy();
+    }
+//fin del comentario de los on
+
+    private void rellenarReciclerview(){
         items = new ArrayList<AcontecimientoItem>();
         BaseDeDatosSQLiteHelper usdbh =
                 new  BaseDeDatosSQLiteHelper(this, Environment.getExternalStorageDirectory()+"/Eventonline.db", null, 1);
@@ -127,70 +196,5 @@ public class ListadoAcontecimientosActivity extends AppCompatActivity {
             Snackbar.make(recyclerView, "No hay acontecimientos", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show();
         }
-
-
-
-
     }
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-
-        getMenuInflater().inflate(R.menu.menu_listado_acontecimietos, menu);
-        return true;
-    }
-    @Override
-    public void onBackPressed() {
-        System.exit(0);
-    }
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-       int id=item.getItemId();
-        if(id==R.id.aboutUsItem){
-
-            startActivity( new Intent(this,AboutUS.class));
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-    @Override
-    protected void onStart() {
-        MyLog.d(ACTIVITY,"Empieza onStar");
-        super.onStart();
-
-    }
-
-    @Override
-    protected void onResume() {
-        MyLog.d(ACTIVITY,"Empieza onResume");
-        super.onResume();
-    }
-
-    @Override
-    protected void onPause() {
-        MyLog.d(ACTIVITY,"Empieza onPause");
-        super.onPause();
-    }
-
-    @Override
-    protected void onStop() {
-        MyLog.d(ACTIVITY,"Empieza onStop");
-        super.onStop();
-
-    }
-
-    @Override
-    protected void onRestart() {
-        MyLog.d(ACTIVITY,"Empieza onRestar");
-        super.onRestart();
-    }
-
-    @Override
-    protected void onDestroy() {
-        MyLog.d(ACTIVITY,"Empieza onDestroy");
-        // TODO Auto-generated method stub
-        super.onDestroy();
-    }
-//fin del comentario de los on
-
-
 }
