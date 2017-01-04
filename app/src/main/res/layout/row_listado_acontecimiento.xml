@@ -22,6 +22,11 @@
         android:id="@+id/textView_row_fecha_inicio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
+        <TextView
+            android:text="=>"
+            android:id="@+id/textView_row_flecha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
     <TextView
         android:id="@+id/textView_row_fecha_fin"
         android:layout_width="wrap_content"
