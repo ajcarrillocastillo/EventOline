@@ -40,12 +40,12 @@ public class ListadoAcontecimientosActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         //acion del boton flotante
         FloatingActionButton fab = (FloatingActionButton)findViewById(R.id.fab);
-                fab.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        startActivity(new Intent(getApplicationContext(), AnnadirAcontecimientoActivity.class));
-                    }
-                });
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), AnnadirAcontecimientoActivity.class));
+            }
+        });
         // Crear elementos
         rellenarReciclerview();
 
@@ -65,7 +65,7 @@ public class ListadoAcontecimientosActivity extends AppCompatActivity {
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-       int id=item.getItemId();
+        int id=item.getItemId();
         if(id==R.id.aboutUsItem){
 
             startActivity( new Intent(this,AboutUS.class));
