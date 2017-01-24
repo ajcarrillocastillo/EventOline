@@ -15,6 +15,7 @@
         <activity
             android:name=".LogoActivity"
             android:theme="@style/AppTheme.NoActionBar">
+            <!--iniciador-->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -37,7 +38,9 @@
             android:name=".VerAcontecimientoActivity"
             android:label="@string/title_activity_ver_acontecimiento"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".EventosActivity"></activity>
+        <activity android:name=".EventosActivity">
+
+        </activity>
     </application>
 
 </manifest>

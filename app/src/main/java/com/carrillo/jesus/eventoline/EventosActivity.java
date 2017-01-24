@@ -1,30 +1,55 @@
 package com.carrillo.jesus.eventoline;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.os.Environment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 public class EventosActivity extends AppCompatActivity  implements ListadoEventosFragment.OnFragmentInteractionListener{
-
+    public static Context myContext;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_eventos);
-        if (findViewById(R.id.unique_fragment)!=null){
-            listadoFragment listadoFrag=new listadoFragment();
+
+
+        if(findViewById(R.id.unique_fragment) != null){
+            if (savedInstanceState != null) {
+                return;
+            }
+            ListadoEventosFragment listadoFrag = new ListadoEventosFragment();
+            //recogemos share preferer
+            SharedPreferences prefs =
+                    getSharedPreferences("Preferencias", Context.MODE_PRIVATE);
+            //recogemos
+            String id = prefs.getString("id", "Error Con el SharePreferences");
+            Bundle args = new Bundle();
+            args.putString("id", id);
+
+            listadoFrag.setArguments(args);
+
+            getSupportFragmentManager().beginTransaction().add(R.id.unique_fragment, listadoFrag).commit();
         }
+
     }
-    public void onFramgmentInteraction (int position){
-        MostrarEventoFragment mostrarEventoFragment=(MostrarEventoFragment) getSupportFragmentManager().findFragmentById(R.id.fragmentMostrarEvento);
-        if(mostrarEventoFragment!= null){
-            mostrarEventoFragment.updateView(position)
+
+    public void onFragmentInteraction(int position,String id){
+        MostrarEventoFragment mostrarEventFrag = (MostrarEventoFragment) getSupportFragmentManager().findFragmentById(R.id.fragmentMostrarEvento);
+
+        if(mostrarEventFrag != null){
+            mostrarEventFrag.updateView(position);
         }else{
-            MostrarEventoFragment newMostrarEventoFragment=new MostrarEventoFragment();
-            Bundle args =new Bundle();
-            args.putInt("position",position);
-            newMostrarEventoFragment.setArguments(args);
-            FragmentTransaction transaction =getSupportFragmentManager().beginTransaction();
-            transaction.replace(R.id.unique_fragment, newMostrarEventoFragment);
+            MostrarEventoFragment newmostrarEventFrag = new MostrarEventoFragment();
+            Bundle args = new Bundle();
+            args.putString("id", id);
+
+            newmostrarEventFrag.setArguments(args);
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            transaction.replace(R.id.unique_fragment, newmostrarEventFrag);
             transaction.addToBackStack(null);
 
             transaction.commit();

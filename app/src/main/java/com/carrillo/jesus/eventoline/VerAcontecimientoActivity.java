@@ -7,6 +7,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.os.Environment;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.view.ContextThemeWrapper;
 import android.support.v7.widget.Toolbar;
@@ -34,7 +35,14 @@ public class VerAcontecimientoActivity extends AppCompatActivity {
                 onBackPressed();
             }
         });
+        FloatingActionButton fab = (FloatingActionButton)findViewById(R.id.fabMostrarEventos);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), EventosActivity.class));
 
+            }
+        });
         //recogemos share preferer
         SharedPreferences prefs =
                 getSharedPreferences("Preferencias", Context.MODE_PRIVATE);

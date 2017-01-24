@@ -4,4 +4,6 @@
 
     <item android:title="Sobre Nosotros"
         android:id="@+id/aboutUsItem" />
+    <item android:title="eventos"
+        android:id="@+id/eventoslistadoid" />
 </menu>
