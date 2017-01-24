@@ -35,12 +35,12 @@ public class MostrarEventoFragment extends Fragment{
         super.onStart();
         Bundle args=getArguments();
         if(args!=null){
-            updateView(args.getInt("position"));
+            updateView(args.getString("id"));
         }
     }
 
-    public void updateView(int position){
+    public void updateView(String id){
         TextView article=(TextView) getActivity().findViewById(R.id.TextViewFragment);
-        article.setText(""+position);
+        article.setText(""+id);
     }
 }

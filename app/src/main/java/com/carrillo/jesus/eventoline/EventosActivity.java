@@ -41,7 +41,7 @@ public class EventosActivity extends AppCompatActivity  implements ListadoEvento
         MostrarEventoFragment mostrarEventFrag = (MostrarEventoFragment) getSupportFragmentManager().findFragmentById(R.id.fragmentMostrarEvento);
 
         if(mostrarEventFrag != null){
-            mostrarEventFrag.updateView(position);
+            mostrarEventFrag.updateView(id);
         }else{
             MostrarEventoFragment newmostrarEventFrag = new MostrarEventoFragment();
             Bundle args = new Bundle();

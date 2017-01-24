@@ -146,7 +146,7 @@ public class ListadoEventosFragment extends ListFragment {
 
         //Nos aseguramos de que existe al menos un registro
         if (cursor.moveToFirst()) {
-            items.removeAll(items);
+            items = new ArrayList<EventoItem>();
 
             //Recorremos el cursor hasta que no haya más registros
            /* LinearLayout layoutPrincipal = (LinearLayout) findViewById(R.id.linearVerAcontecimientos);
