@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.view.ContextThemeWrapper;
 import android.support.v7.widget.Toolbar;
@@ -15,15 +16,19 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class VerAcontecimientoActivity extends AppCompatActivity {
     private static final String ACTIVITY=  "VerAcontecimiento";
     private TextView textView;
     private ImageView imageView;
+    private Context mycontext;
+    private String id;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ver_acontecimiento);
+        mycontext=this;
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         //hacemos visible el boton up
@@ -35,20 +40,34 @@ public class VerAcontecimientoActivity extends AppCompatActivity {
                 onBackPressed();
             }
         });
-        FloatingActionButton fab = (FloatingActionButton)findViewById(R.id.fabMostrarEventos);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), EventosActivity.class));
-
-            }
-        });
         //recogemos share preferer
         SharedPreferences prefs =
                 getSharedPreferences("Preferencias", Context.MODE_PRIVATE);
         //recogemos
-        String id = prefs.getString("id", "Error Con el SharePreferences");
+         id = prefs.getString("id", "Error Con el SharePreferences");
         //leer de la base de datos.
+        FloatingActionButton fab = (FloatingActionButton)findViewById(R.id.fabMostrarEventos);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                BaseDeDatosSQLiteHelper usdbh =
+                        new BaseDeDatosSQLiteHelper(mycontext, Environment.getExternalStorageDirectory()+"/Eventonline.db", null, 1);
+                //instancia la db.
+                SQLiteDatabase db = usdbh.getReadableDatabase();
+
+                String[] argsID = new String[] {id};
+                Cursor cursor = db.rawQuery(" SELECT * FROM evento WHERE id=? ", argsID);
+                //Nos aseguramos de que existe al menos un registro
+                if (cursor.moveToFirst()) {
+                    startActivity(new Intent(getApplicationContext(), EventosActivity.class));
+                }else{
+                    Snackbar.make(view, "No hay eventos", Snackbar.LENGTH_LONG)
+                            .setAction("Action", null).show();
+
+                }
+            }
+        });
+
         BaseDeDatosSQLiteHelper usdbh =
                 new  BaseDeDatosSQLiteHelper(this, Environment.getExternalStorageDirectory()+"/Eventonline.db", null, 1);
         SQLiteDatabase db = usdbh.getReadableDatabase();
