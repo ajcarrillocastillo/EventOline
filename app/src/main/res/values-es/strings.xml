@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">EventOline</string>
+    <string name="dummy_button">Boton Tonto</string>
+    <string name="dummy_content">Tonto[...]</string>
+    <string name="hello_blank_fragment">Hola fragmento en blanco</string>
+    <string name="pref_description_social_recommendations">recomendacion de gente de contacto</string>
+    <string name="pref_header_general">General</string>
+    <string name="pref_header_data_sync"></string>
+    <string name="pref_header_notifications">Notificacion</string>
+    <string name="pref_ringtone_silent">Silencio</string>
+    <string name="pref_title_add_friends_to_messages">Añadir amigos</string>
+    <string name="pref_title_display_name">Mostrar nombre</string>
+    <string name="pref_title_new_message_notifications">Nuevo mensage notificacion</string>
+    <string name="pref_title_ringtone">Politono</string>
+    <string name="pref_title_social_recommendations">Activar recomendacionse sociales</string>
+    <string name="pref_title_sync_frequency">Frecuencia de sincronizacion</string>
+    <string name="pref_title_system_sync_settings">Configuracion sistema cincronización</string>
+    <string name="pref_title_vibrate">Vibración</string>
+    <string name="title_activity_about_us">Sobre Nosotros</string>
+    <string name="title_activity_annadir_acontecimiento">Actividad Añadir Acontecimiento</string>
+    <string name="title_activity_listado_acontecimientos">Actividad Listado Acontecimeintos</string>
+    <string name="title_activity_settings">Configuracion</string>
+    <string name="title_activity_ver_acontecimiento">VerAcontecimientoActivity</string>
+    <string name="SelectLanguage">Seleccione  Idioma</string>
+    <string name="EditLanguage">Editar Idioma</string>
+    <string name="ListOcurrences">Lista Acontecimientos</string>
+    <string name="Search">Buscar</string>
+</resources>

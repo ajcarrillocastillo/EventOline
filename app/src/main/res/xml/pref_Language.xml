@@ -1,0 +1,13 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ListPreference
+        android:title="@string/SelectLanguage"
+        android:key="ListaDeLenguajes"
+        android:negativeButtonText="@null"
+        android:positiveButtonText="@null"
+        android:summary="Descripción de la preferencia 3"
+        android:dialogTitle="Indicar Pais"
+        android:entries="@array/pais"
+        android:entryValues="@array/codigopais" />
+
+</PreferenceScreen>

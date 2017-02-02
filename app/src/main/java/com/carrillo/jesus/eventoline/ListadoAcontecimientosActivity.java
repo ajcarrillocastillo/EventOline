@@ -65,13 +65,19 @@ public class ListadoAcontecimientosActivity extends AppCompatActivity {
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        int id=item.getItemId();
-        if(id==R.id.aboutUsItem){
-
-            startActivity( new Intent(this,AboutUS.class));
-            return true;
+        switch (item.getItemId()) { //si id es igual a la de aboutus, es decir, cuando clickemos en about us se abrirá la ventana.
+            case R.id.aboutUsItem:
+                Intent intent = new Intent(this, AboutUS.class);
+                this.startActivity(intent);
+                break;
+            case R.id.configuracionItem:
+                Intent intentconf = new Intent(this, SettingsActivity.class);
+                this.startActivity(intentconf);
+                break;
+            default:
+                return super.onOptionsItemSelected(item);
         }
-        return super.onOptionsItemSelected(item);
+        return true;
     }
     @Override
     protected void onStart() {

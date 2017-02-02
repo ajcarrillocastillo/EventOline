@@ -2,8 +2,8 @@
 <menu
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:title="Sobre Nosotros"
+    <item android:title="@string/title_activity_about_us"
         android:id="@+id/aboutUsItem" />
-    <item android:title="eventos"
-        android:id="@+id/eventoslistadoid" />
+    <item android:title="@string/title_activity_settings"
+        android:id="@+id/configuracionItem" />
 </menu>
