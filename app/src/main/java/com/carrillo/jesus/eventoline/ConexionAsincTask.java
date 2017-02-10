@@ -121,7 +121,7 @@ public class ConexionAsincTask extends AsyncTask<String, String, String> {
                             String localidadEvento = (jsoneventoObjeto.has("localidad") ? jsoneventoObjeto.getString("localidad") : "");
                             String codPostalEvento = (jsoneventoObjeto.has("codPostal") ? jsoneventoObjeto.getString("codPostal") : "");
                             String provinciaEvento = (jsonAcontecimiento.has("provincia") ? jsonAcontecimiento.getString("provincia") : "");
-                            String longitudEvento = (jsoneventoObjeto.has("longitud") ? jsoneventoObjeto.getString("latitud") : "");
+        /*nota rafa aqui era*/                    String longitudEvento = (jsoneventoObjeto.has("longitud") ? jsoneventoObjeto.getString("longitud") : "");
                             String latitudEvento = (jsonAcontecimiento.has("latitud") ? jsonAcontecimiento.getString("latitud") : "");
                             MyLog.i("NuevoAcontecimiento-Event", jsoneventoObjeto.getString("nombre"));
                             db.execSQL("DELETE FROM `evento` WHERE id='"+idEvento+"';");

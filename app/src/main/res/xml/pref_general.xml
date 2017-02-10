@@ -5,9 +5,13 @@
         android:key="ListaDeLenguajes"
         android:negativeButtonText="@null"
         android:positiveButtonText="@null"
-        android:summary="Descripción de la preferencia 3"
+        android:defaultValue="en"
         android:dialogTitle="Indicar Pais"
         android:entries="@array/pais"
         android:entryValues="@array/codigopais" />
+    <SwitchPreference
+        android:defaultValue="true"
+        android:key="switchVolverActividad"
+        android:title="@string/volver_actividad" />
 
 </PreferenceScreen>

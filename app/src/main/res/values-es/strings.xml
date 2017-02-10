@@ -26,4 +26,12 @@
     <string name="EditLanguage">Editar Idioma</string>
     <string name="ListOcurrences">Lista Acontecimientos</string>
     <string name="Search">Buscar</string>
+    <string name="volver_actividad">Guardar el ultimo acontecimiento</string>
+    <string name="General">General</string>
+    <string name="map">Mapa</string>
+    <string name="title_activity_maps">Mapa</string>
+    <string name="Developer">Desarrollador:</string>
+    <string name="Version">Versión:</string>
+    <string name="Licenses">Licencia:</string>
+    <string name="Number">Contancto</string>
 </resources>

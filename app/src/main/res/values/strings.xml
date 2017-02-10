@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">EventOline</string>
 
-    <string name="dummy_button">Dummy Button</string>
-    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="dummy_button" translatable="false">Dummy Button</string>
+    <string name="dummy_content" translatable="false">DUMMY\nCONTENT</string>
     <string name="title_activity_listado_acontecimientos">ListOcurrencesActivity</string>
     <string name="title_activity_about_us">AboutUS</string>
     <string name="title_activity_annadir_acontecimiento">AddOcurrencesActivity</string>
@@ -23,7 +23,7 @@
     </string>
 
     <string name="pref_title_display_name">Display name</string>
-    <string name="pref_default_display_name">John Smith</string>
+    <string name="pref_default_display_name" translatable="false">John Smith</string>
 
     <string name="pref_title_add_friends_to_messages">Add friends to messages</string>
     <string-array name="pref_example_list_titles">
@@ -38,7 +38,7 @@
     </string-array>
 
     <!-- Example settings for Data & Sync -->
-    <string name="pref_header_data_sync">Data &amp; sync</string>
+    <string name="pref_header_data_sync" translatable="false">Data &amp; sync</string>
 
     <string name="pref_title_sync_frequency">Sync frequency</string>
     <string-array name="pref_sync_frequency_titles">
@@ -87,4 +87,12 @@
     <string name="EditLanguage">Edit Language</string>
     <string name="ListOcurrences">List Ocurrences</string>
     <string name="Search">Search</string>
+    <string name="volver_actividad">Safe last ocurrence</string>
+    <string name="General">General</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="map">Map</string>
+    <string name="Developer">Developer:</string>
+    <string name="Version">Version:</string>
+    <string name="Licenses">Licenses:</string>
+    <string name="Number">Number:</string>
 </resources>

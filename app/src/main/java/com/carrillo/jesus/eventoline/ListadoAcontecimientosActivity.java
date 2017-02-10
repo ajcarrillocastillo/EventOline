@@ -4,10 +4,12 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.os.Environment;
+import android.preference.PreferenceManager;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -25,6 +27,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Locale;
 
 public class ListadoAcontecimientosActivity extends AppCompatActivity {
     private static final String ACTIVITY=  "listadoAcontecimiento";
@@ -35,6 +38,22 @@ public class ListadoAcontecimientosActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        SharedPreferences pref =
+                PreferenceManager.getDefaultSharedPreferences(
+                        this);
+
+        boolean isSelect=pref.getBoolean("switchVolverActividad", false);
+        if(isSelect){
+            SharedPreferences prefs =
+                    getSharedPreferences("Preferencias", Context.MODE_PRIVATE);
+            //recogemos
+            String id = prefs.getString("id", "");
+            if(!id.equals("")){
+                this.startActivity(new Intent(this, VerAcontecimientoActivity.class));
+            }
+
+    }
+
         setContentView(R.layout.activity_listado_acontecimientos);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -199,7 +218,8 @@ public class ListadoAcontecimientosActivity extends AppCompatActivity {
             // Se muestra el RecyclerView en vertical
             recyclerView.setLayoutManager(new LinearLayoutManager(this));
         }else{
-            Snackbar.make(recyclerView, "No hay acontecimientos", Snackbar.LENGTH_LONG)
+            recyclerView.setLayoutManager(new LinearLayoutManager(this));
+           Snackbar.make(recyclerView, "No hay acontecimientos", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show();
         }
     }

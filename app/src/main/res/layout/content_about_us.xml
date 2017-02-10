@@ -14,7 +14,7 @@
     tools:showIn="@layout/activity_about_us">
 
     <TextView
-        android:text="Desarrollador"
+        android:text="@string/Developer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -34,7 +34,7 @@
         android:layout_marginStart="58dp" />
 
     <TextView
-        android:text="Version"
+        android:text="@string/Version"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textViewNombre"
@@ -44,7 +44,7 @@
         android:id="@+id/textViewVersion" />
 
     <TextView
-        android:text="0.0.1"
+        android:text="0.9.0"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textViewVersionEscrita"
@@ -54,7 +54,7 @@
         android:layout_alignStart="@+id/textViewNombreHecho" />
 
     <TextView
-        android:text="Licencias:"
+        android:text="@string/Licenses"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textViewVersion"
@@ -73,7 +73,7 @@
         android:id="@+id/TextViewLicencias" />
 
     <TextView
-        android:text="Contacto:"
+        android:text="@string/Number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textViewLicencias"

@@ -1,18 +1,25 @@
 package com.carrillo.jesus.eventoline;
 
+import android.*;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.view.ContextThemeWrapper;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -31,6 +38,14 @@ public class VerAcontecimientoActivity extends AppCompatActivity {
         mycontext=this;
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        Button but = (Button) findViewById(R.id.BotonMapa);
+        but.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), MapsActivity.class));
+            }
+        });
         //hacemos visible el boton up
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         //seleecionamos que hace el up
@@ -79,7 +94,7 @@ public class VerAcontecimientoActivity extends AppCompatActivity {
         //Nos aseguramos de que existe al menos un registro
         if (cursor.moveToFirst()) {
             //Recorremos el cursor hasta que no haya más registros
-            LinearLayout layoutPrincipal = (LinearLayout) findViewById(R.id.linearVerAcontecimientos);
+            LinearLayout layoutPrincipal = (LinearLayout) findViewById(R.id.linearVerAcontecimientosLista);
             layoutPrincipal.setOrientation(LinearLayout.VERTICAL);
             do{
 //recogemos los datos
@@ -114,14 +129,23 @@ public class VerAcontecimientoActivity extends AppCompatActivity {
                 if(!localidad.isEmpty()) crearElementos(localidad, R.drawable.ic_domain_black_24dp, layoutPrincipal);
                 if(!codPostal.isEmpty()) crearElementos(codPostal, R.drawable.ic_date_range_black_24dp, layoutPrincipal);
                 if(!provincia.isEmpty()) crearElementos(provincia, R.drawable.ic_location_city_black_24dp, layoutPrincipal);
-                if(!longitud.isEmpty()) crearElementos(longitud, R.drawable.ic_explore_black_24dp, layoutPrincipal);
-                if(!latitud.isEmpty()) crearElementos(latitud, R.drawable.ic_explore_black_24dp, layoutPrincipal);
+                if(!longitud.isEmpty()) {
+                    crearElementos(longitud, R.drawable.ic_explore_black_24dp, layoutPrincipal);
+                }else{
+                    but.setVisibility(View.INVISIBLE);
+                }
+                if(!latitud.isEmpty()) {
+                    crearElementos(latitud, R.drawable.ic_explore_black_24dp, layoutPrincipal);
+                }else{
+                    but.setVisibility(View.INVISIBLE);
+                }
                 if(!telefono.isEmpty()) crearElementos(telefono, R.drawable.ic_contact_phone_black_24dp, layoutPrincipal);
                 if(!email.isEmpty()) crearElementos(email, R.drawable.ic_email_black_24dp, layoutPrincipal);
                 if(!web.isEmpty()) crearElementos(web , R.drawable.ic_public_black_24dp, layoutPrincipal);
                 if(!facebook.isEmpty()) crearElementos(facebook, R.drawable.ic_email_black_24dp, layoutPrincipal);
                 if(!twitter.isEmpty()) crearElementos(twitter, R.drawable.ic_email_black_24dp, layoutPrincipal);
                 if(!instagram.isEmpty()) crearElementos(instagram, R.drawable.ic_add_a_photo_black_24dp,layoutPrincipal);
+
             }while(cursor.moveToNext());
         }
 

@@ -15,5 +15,17 @@
     tools:context="com.carrillo.jesus.eventoline.VerAcontecimientoActivity">
 
 
+    <LinearLayout
+        android:orientation="vertical"
+        android:id="@+id/linearVerAcontecimientosLista"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></LinearLayout>
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/ic_explore_black_24dp"
+        android:id="@+id/BotonMapa"
+        android:text="@string/map"
+        />
 </LinearLayout>
