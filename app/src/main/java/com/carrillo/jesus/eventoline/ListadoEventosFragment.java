@@ -147,7 +147,7 @@ public class ListadoEventosFragment extends ListFragment {
 
 
         String[] argsID = new String[]{id_Acon};
-        Cursor cursor = db.rawQuery(" SELECT id,nombre FROM evento WHERE id=? ", argsID);
+        Cursor cursor = db.rawQuery(" SELECT id,nombre FROM evento WHERE id_acontecimiento=? ", argsID);
 
         //Nos aseguramos de que existe al menos un registro
         if (cursor.moveToFirst()) {

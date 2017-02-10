@@ -1,12 +1,16 @@
 package com.carrillo.jesus.eventoline;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Environment;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.LinearLayout;
 
 import com.google.android.gms.ads.InterstitialAd;
@@ -27,7 +31,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private float latitudEvento=0;
     private float longitudEvento=0;
     private String nombreEvento;
-
+    private LatLng AcontecimientoActual;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -80,7 +84,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             }while(cursor.moveToNext());
         }
         // Add a marker in AcontecimientoActual and move the camera
-        LatLng AcontecimientoActual = new LatLng(latitudAcontecimiento, longitudAcontecimiento);
+        AcontecimientoActual = new LatLng(latitudAcontecimiento, longitudAcontecimiento);
         mMap.addMarker(new MarkerOptions().position(AcontecimientoActual).title(nombreAcontecimiento).icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_punteroacontecimiento)));
         // mMap.addMarker(new MarkerOptions().position(new LatLng(latitud+0.001,longitud+0.001)));
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(AcontecimientoActual,16));
@@ -98,6 +102,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
             }while(cursorEven.moveToNext());
         }
+        FloatingActionButton fab = (FloatingActionButton)findViewById(R.id.floatingActionButtonMapa);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(AcontecimientoActual,16));
+
+
+            }
+        });
 
 
 

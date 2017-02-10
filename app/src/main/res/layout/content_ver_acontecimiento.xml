@@ -26,6 +26,7 @@
         android:layout_height="wrap_content"
         android:drawableLeft="@drawable/ic_explore_black_24dp"
         android:id="@+id/BotonMapa"
+        android:theme="@style/MyButton"
         android:text="@string/map"
         />
 </LinearLayout>
