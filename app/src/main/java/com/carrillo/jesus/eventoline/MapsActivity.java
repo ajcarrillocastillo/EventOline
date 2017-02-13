@@ -42,6 +42,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
+
     }
 
 
@@ -75,7 +76,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         //Nos aseguramos de que existe al menos un registro
         if (cursor.moveToFirst()) {
             do{
-//recogemos los datos
+        //recogemos los datos
                 nombreAcontecimiento = cursor.getString(cursor.getColumnIndex("nombre"));
                 longitudAcontecimiento = Float.parseFloat(cursor.getString(cursor.getColumnIndex("longitud")));
                 latitudAcontecimiento = Float.parseFloat(cursor.getString(cursor.getColumnIndex("latitud")));
@@ -91,13 +92,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         if (cursorEven.moveToFirst()) {
             LatLng EventoActual;
             do{
-//recogemos los datos
+        //recogemos los datos
                 nombreEvento = cursorEven.getString(cursorEven.getColumnIndex("nombre"));
                 if(!cursorEven.getString(cursorEven.getColumnIndex("longitud")).isEmpty()&& !cursorEven.getString(cursorEven.getColumnIndex("latitud")).isEmpty()) {
                     longitudEvento = Float.parseFloat(cursorEven.getString(cursorEven.getColumnIndex("longitud")));
                     latitudEvento = Float.parseFloat(cursorEven.getString(cursorEven.getColumnIndex("latitud")));
                 }
-                 EventoActual = new LatLng(latitudEvento, longitudEvento);
+                EventoActual = new LatLng(latitudEvento, longitudEvento);
                 mMap.addMarker(new MarkerOptions().position(EventoActual).title(nombreEvento).icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_punteroevento)));
 
             }while(cursorEven.moveToNext());
